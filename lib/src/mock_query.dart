@@ -121,6 +121,23 @@ class MockQuery extends Mock implements Query {
     });
   }
 
+
+  @override
+  Query endAt(List<dynamic> values) {
+    return MockQuery(this, (docs) {
+      final sortedList = List.of(docs);
+      return sortedList;
+    });
+  }
+
+  @override
+  Query startAt(List<dynamic> values) {
+    return MockQuery(this, (docs) {
+      final sortedList = List.of(docs);
+      return sortedList;
+    });
+  }
+
   @override
   Query limit(int length) {
     return MockQuery(this, (docs) => docs.sublist(0, min(docs.length, length)));
